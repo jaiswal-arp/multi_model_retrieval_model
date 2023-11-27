@@ -133,3 +133,48 @@ image_path_url = []
 base_url = "https://fashionimages05.s3.amazonaws.com/"
 
 
+# Process each image
+for image_path in first_images_list:
+    #Stroing the S3 Image URLs
+
+    path = base_url + image_path
+    image_path_url.append(path)
+
+    # Download the image from S3
+    response = s3.get_object(Bucket=s3_bucket_name, Key=image_path)
+    content = response['Body'].read()
+
+    # Prepare the image content for payload
+    base64_image = encode_image(content)
+
+    image_content = {
+      "type": "image_url",
+      "image_url": {
+      "url": f"data:image/jpeg;base64,{base64_image}"
+      }
+    }
+
+    # The text content remains the same
+    text_content = {
+        "type": "text",
+        "text": fashion_navigation
+    }
+
+    # Combine the text content with the image contents
+    combined_contents = [text_content, image_content]
+
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {openai.api_key}"
+    }
+
+    payload = {
+        "model": "gpt-4-vision-preview",
+        "messages": [
+            {
+                "role": "user",
+                "content": combined_contents
+            }
+        ],
+        "max_tokens": 4000
+    }
