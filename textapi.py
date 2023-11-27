@@ -83,3 +83,53 @@ def save_response_content(image_name, content):
         # Create new file with initial data
         with open(filename, 'w') as file:
             json.dump([data], file, indent=4)
+
+# List objects in the S3 bucket with pagination
+all_image_paths = []
+continuation_token = None
+
+while True:
+    # Make the list_objects_v2 request with the continuation token
+    list_objects_params = {'Bucket': s3_bucket_name, 'Prefix': 'WOMEN/'}
+
+    if continuation_token:
+        list_objects_params['ContinuationToken'] = continuation_token
+
+    response = s3.list_objects_v2(**list_objects_params)
+
+    # Check if there are Contents (objects) in the response
+    if 'Contents' in response:
+        for obj in response['Contents']:
+            image_key = obj['Key']
+            all_image_paths.append(image_key)
+
+    # Check if there is a NextContinuationToken
+    if 'NextContinuationToken' in response:
+        continuation_token = response['NextContinuationToken']
+    else:
+        break
+
+
+# Group images by product subfolder
+image_groups = {}
+for image_path in all_image_paths:
+    product_subfolder = os.path.dirname(image_path)
+    if product_subfolder not in image_groups:
+        image_groups[product_subfolder] = []
+    image_groups[product_subfolder].append(image_path)
+
+
+
+# List to store the paths of the first image in each subfolder
+first_images_list = []
+
+# Iterate through the image groups and select the first image in each subfolder
+for subfolder, image_paths in image_groups.items():
+    if len(image_paths) > 0:
+        first_image_path = image_paths[0]
+        first_images_list.append(first_image_path)
+
+image_path_url = []
+base_url = "https://fashionimages05.s3.amazonaws.com/"
+
+
