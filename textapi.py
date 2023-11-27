@@ -67,3 +67,19 @@ def save_response_content(image_name, content):
         "response_content": content
     }
 
+    filename = 'responses.json'
+    # Check if file exists and has content
+    try:
+        with open(filename, 'r+') as file:
+            # Read current data from file
+            file_data = json.load(file)
+            # Append new data
+            file_data.append(data)
+            # Set file's current position at offset
+            file.seek(0)
+            # Update JSON file
+            json.dump(file_data, file, indent=4)
+    except (FileNotFoundError, json.JSONDecodeError):
+        # Create new file with initial data
+        with open(filename, 'w') as file:
+            json.dump([data], file, indent=4)
