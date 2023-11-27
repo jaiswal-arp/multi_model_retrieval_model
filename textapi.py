@@ -226,3 +226,35 @@ for image_path in first_images_list:
 
     print("Waiting for 60 seconds before the next iteration...")
     #time.sleep(60)
+
+
+
+# Create a cursor
+cursor = con.cursor()
+
+base_url = "https://fashionimages05.s3.amazonaws.com/"
+
+# Loop through your annotations and upsert into Snowflake
+with open('responses.json', 'r') as file:
+    data = json.load(file)
+    for entry in data:
+        image = base_url + entry['image']
+        response_content = entry['response_content']
+        print(image)
+        # SQL statement to insert data into the table
+        sql_insert = f"INSERT INTO {snowflake_table} (Image, Response_content) VALUES (%s,%s)"
+
+         # Tuple of values to be inserted
+        data = (image, response_content)
+
+
+        # Execute the SQL statement
+        cursor.execute(sql_insert, data)
+
+        # Commit the transaction
+        con.commit()
+
+        print("Data inserted successfully!")
+
+
+    cursor.close()
