@@ -1,0 +1,14 @@
+[
+    {
+        "image": "WOMEN/Blouses_Shirts/id_00004652/02_1_front.jpg",
+        "response_content": "{\n  \"navigation_tags\": [\n    \"Women's Clothing\",\n    \"Tops & Blouses\",\n    \"Casual Wear\",\n    \"Long Sleeve\",\n    \"Solid Color\",\n    \"Lace Detail\",\n    \"Pleated\",\n    \"Round Neck\",\n    \"Fashion Jewelry\",\n    \"Slim Fit Pants\",\n    \"Trendy Outfits\"\n  ]\n}"
+    },
+    {
+        "image": "WOMEN/Blouses_Shirts/id_00004716/02_1_front.jpg",
+        "response_content": "{\n  \"navigation_tags\": [\n    \"Women's Clothing\",\n    \"Tops & Blouses\",\n    \"Casual Wear\",\n    \"Long Sleeves\",\n    \"Embroidery\",\n    \"Bohemian Style\",\n    \"Summer Collection\",\n    \"White Color\",\n    \"Lightweight Fabric\",\n    \"Denim Shorts\",\n    \"Festival Outfits\",\n    \"Streetwear\"\n  ]\n}"
+    },
+    {
+        "image": "WOMEN/Blouses_Shirts/id_00004720/01_1_front.jpg",
+        "response_content": "```json\n{\n  \"navigation_tags\": [\n    \"Women's Clothing\",\n    \"Tops & Blouses\",\n    \"Sleeveless Tops\",\n    \"Plaid Pattern\",\n    \"Casual Wear\",\n    \"Button-Up Shirts\",\n    \"Collared Neckline\",\n    \"Summer Collection\",\n    \"Cotton Fabric\",\n    \"Extended Sizes\",\n    \"Designer Brands\",\n    \"Sustainable Fashion\"\n  ]\n}\n```"
+    }
+]
