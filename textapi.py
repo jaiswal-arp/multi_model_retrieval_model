@@ -178,3 +178,31 @@ for image_path in first_images_list:
         ],
         "max_tokens": 4000
     }
+
+   # Make the OpenAI request
+    response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)
+
+    # Check if the response was successful
+    if response.status_code == 200:
+        response_json = response.json()
+        try:
+            content = response_json['choices'][0]['message']['content']
+            print(content)
+
+            # Save the 'content' part of the response along with the image name
+            save_response_content(image_path, content)
+
+            print(f"Response content saved to 'responses.json'.")
+
+        except KeyError:
+            print("The 'choices' key is missing in the response. Full response:")
+            print(response_json)
+
+
+    else:
+        print(f"Failed to get a successful response. Status code: {response.status_code}")
+        print("Full response:")
+        print(response.text)
+
+    print("Waiting for 60 seconds before the next iteration...")
+    #time.sleep(60)
