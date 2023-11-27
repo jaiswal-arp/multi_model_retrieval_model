@@ -225,7 +225,7 @@ for image_path in first_images_list:
         print(response.text)
 
     print("Waiting for 60 seconds before the next iteration...")
-    #time.sleep(60)
+    time.sleep(60)
 
 
 
