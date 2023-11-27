@@ -25,6 +25,26 @@ s3 = boto3.client(
     aws_secret_access_key=aws_secret_access_key
 )
 
+
+# Get Snowflake credentials from environment variables
+snowflake_user = os.environ.get("SNOWFLAKE_USER")
+snowflake_password = os.environ.get("SNOWFLAKE_PASSWORD")
+snowflake_account = os.environ.get("SNOWFLAKE_ACCOUNT")
+snowflake_warehouse = os.environ.get("SNOWFLAKE_WAREHOUSE")
+snowflake_database = os.environ.get("SNOWFLAKE_DATABASE")
+snowflake_schema = os.environ.get("SNOWFLAKE_SCHEMA")
+
+
+# Connect to Snowflake
+conn = snowflake.connector.connect(
+    user=snowflake_user,
+    password=snowflake_password,
+    account=snowflake_account,
+    warehouse=snowflake_warehouse,
+    database=snowflake_database,
+    schema=snowflake_schema
+)
+
 # Prompt 
 fashion_navigation = (
     "YOUR ROLE:\n"
