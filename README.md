@@ -1,4 +1,4 @@
-# Similar Image 
+# Finding Similar Image Using Multi-Model Retrieval Model
 > -----
 > [Codelab Slides](https://codelabs-preview.appspot.com/?file_id=14LuhtG4__jyfEC9ih-lwo1A1dE2DT8PUQgLh5-8bMIU/edit#0) <br>
 > ----- 
