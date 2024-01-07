@@ -1,7 +1,5 @@
 # Assignment05
 > [Codelab Slides](https://codelabs-preview.appspot.com/?file_id=14LuhtG4__jyfEC9ih-lwo1A1dE2DT8PUQgLh5-8bMIU/edit#0) <br>
-> [Application Demo/Presentation](https://github.com/AlgoDM-Fall2023-Team4/Assignment05/blob/pranitha_dev/video1252720002.mp4)
->
 > ----- 
 
 ## Index
