@@ -1,4 +1,5 @@
-# Assignment05
+# Similar Image 
+> -----
 > [Codelab Slides](https://codelabs-preview.appspot.com/?file_id=14LuhtG4__jyfEC9ih-lwo1A1dE2DT8PUQgLh5-8bMIU/edit#0) <br>
 > ----- 
 
@@ -10,9 +11,9 @@
   - ----- 
 
 ## Objective
-This application aims to work on the following use cases by building a multi modal retrieval model 
+This application aims to work on the following use cases by building a multi-modal retrieval model 
 1. Given an image, will find other images and text tags of similar images <br>
-2. Given a text string, find images which match the description of the text string <br>
+2. Given a text string, find images that match the description of the text string <br>
 
 
 ## Project Structure
